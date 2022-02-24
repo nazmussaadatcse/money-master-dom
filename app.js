@@ -70,3 +70,34 @@ document.getElementById('save-button').addEventListener('click', function(){
     const balanceRemainingTotal = document.getElementById('remaining-balance');
     balanceRemainingTotal.innerText= remaining;
 });
+
+//clear button
+document.getElementById('clear-all').addEventListener('click',function(){
+
+    const incomeInput = document.getElementById('income-input');
+    incomeInput.value ='';
+   
+    const foodInput = document.getElementById('food-expense-input');
+    foodInput.value = '';
+   
+    const rentInput = document.getElementById('rent-expense-input');
+    rentInput.value = '';
+  
+    const clotheInput = document.getElementById('clothe-expense-input');
+    clotheInput.value = '';
+  
+    const saveAmount = document.getElementById('save-input');
+    saveAmount.value = '';
+  
+    const ExpenseAmount = document.getElementById('total-expense');
+    ExpenseAmount.innerText = 0;
+  
+    const totalBalance = document.getElementById('balance');
+    totalBalance.innerText = 0;
+  
+    const remainingBalance = document.getElementById('saving-amount');
+    remainingBalance.innerText = 0;
+  
+    const balanceRemainingTotal = document.getElementById('remaining-balance');
+    balanceRemainingTotal.innerText= 0;
+  })
