@@ -77,6 +77,11 @@ document.getElementById('calculate-button').addEventListener('click', function()
     const ExpenseAmount = document.getElementById('total-expense');
     ExpenseAmount.innerText = totalExpense;
 
+    if(totalExpense > balance){
+        const failError = document.getElementById('notify-fail2');
+        failError.style.display =  'block';  
+    }
+
 });
 
 // save section
@@ -147,4 +152,7 @@ document.getElementById('clear-all').addEventListener('click',function(){
 
     const failError = document.getElementById('notify-fail');
     failError.style.display =  'none';
+    const failError2 = document.getElementById('notify-fail2');
+    failError2.style.display =  'none';
+    
   })
