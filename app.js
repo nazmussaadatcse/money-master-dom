@@ -3,6 +3,14 @@ function getIncome(){
     const incomeInput = document.getElementById('income-input');
     const incomeText = incomeInput.value;
     const income = parseFloat(incomeText);
+    if(isNaN(income)){
+        errorMessage();
+        
+    }
+    if(income < 0){
+        errorMessage();
+        
+    }
     return income;
 }
 // expense function
@@ -11,14 +19,38 @@ function getExpense(){
   const foodInput = document.getElementById('food-expense-input');
   const foodText = foodInput.value;
   const foodAmount = parseFloat(foodText);
+  if(isNaN(foodAmount)){
+        errorMessage();
+        
+    }
+    if(foodAmount < 0){
+        errorMessage();
+        
+    }
   //rent input
   const rentInput = document.getElementById('rent-expense-input');
   const rentText = rentInput.value;
   const rentAmount = parseFloat(rentText);
+  if(isNaN(rentAmount)){
+        errorMessage();
+        
+    }
+    if(rentAmount < 0){
+        errorMessage();
+        
+    }
   //clothe input
   const clotheInput = document.getElementById('clothe-expense-input');
   const clotheText = clotheInput.value;
   const clotheAmount = parseFloat(clotheText);
+  if(isNaN(clotheAmount)){
+        errorMessage();
+        
+    }
+    if(clotheAmount < 0){
+        errorMessage();
+        
+    }
   //total expense
   const totExpense = foodAmount + rentAmount + clotheAmount;
   return totExpense;
@@ -36,15 +68,14 @@ function getExpense(){
 // Calculate button
 document.getElementById('calculate-button').addEventListener('click', function(){
 
+    const balance = getBalance(); // calling function
+    const totalBalance = document.getElementById('balance');
+    totalBalance.innerText = balance;
 
     //set Total Expense and balance
     const totalExpense = getExpense(); // calling function
     const ExpenseAmount = document.getElementById('total-expense');
     ExpenseAmount.innerText = totalExpense;
-
-    const balance = getBalance(); // calling function
-    const totalBalance = document.getElementById('balance');
-    totalBalance.innerText = balance;
 
 });
 
@@ -55,6 +86,14 @@ document.getElementById('save-button').addEventListener('click', function(){
     const saveAmount = document.getElementById('save-input');
     const saveAmountText = saveAmount.value;
     const saveAmountTotal = parseFloat(saveAmountText);
+    if(isNaN(saveAmountTotal)){
+        errorMessage();
+        
+    }
+    if(saveAmountTotal < 0){
+        errorMessage();
+        
+    }
 
     //save amount
     const incomeTotal = getIncome(); // calling function
@@ -71,9 +110,14 @@ document.getElementById('save-button').addEventListener('click', function(){
     balanceRemainingTotal.innerText= remaining;
 });
 
-//clear button
-document.getElementById('clear-all').addEventListener('click',function(){
+//error message
+function errorMessage(){
 
+    const failError = document.getElementById('notify-fail');
+    failError.style.display =  'block';  
+}
+
+document.getElementById('clear-all').addEventListener('click',function(){
     const incomeInput = document.getElementById('income-input');
     incomeInput.value ='';
    
@@ -100,4 +144,7 @@ document.getElementById('clear-all').addEventListener('click',function(){
   
     const balanceRemainingTotal = document.getElementById('remaining-balance');
     balanceRemainingTotal.innerText= 0;
+
+    const failError = document.getElementById('notify-fail');
+    failError.style.display =  'none';
   })
