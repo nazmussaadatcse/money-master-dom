@@ -76,7 +76,8 @@ document.getElementById('calculate-button').addEventListener('click', function()
     const totalExpense = getExpense(); // calling function
     const ExpenseAmount = document.getElementById('total-expense');
     ExpenseAmount.innerText = totalExpense;
-
+    
+    //error message
     if(totalExpense > balance){
         const failError = document.getElementById('notify-fail2');
         failError.style.display =  'block';  
